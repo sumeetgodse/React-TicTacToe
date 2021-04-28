@@ -31,7 +31,7 @@ function App() {
   const isTie=()=>{
     let i=0;
     while(i<9){
-      if(gameState[i]=="")
+      if(gameState[i]==="")
         return false;
       else
         i++;
