@@ -54,6 +54,14 @@
     box-shadow: 2px 2px #888888;
 }
 
+.nextplayer{
+    color: black;
+    padding:10px;
+    margin-top: 40px ;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
 .x{
     color:#ef5350 
 }
@@ -61,3 +69,25 @@
 .o{
     color:#66bb6a 
 }
+
+@media only screen and (max-width: 600px) {
+    .chessboard {
+        margin-top: 15%;
+        display: flex;
+        min-height: 80vh;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        color: black;
+    }
+    
+    .square {
+        min-width: 80px;
+        min-height: 80px;
+        font-size: 48px;
+        text-align: center;
+        font-weight: bolder;
+        padding: 20px;
+    }
+  }
