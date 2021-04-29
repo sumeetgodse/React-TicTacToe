@@ -8,6 +8,7 @@ function App() {
 
   const [gameState,updategameState]=useState(initialState);
   const [isXTurn,updateisXTurn]=useState(true);
+  const x=isXTurn? "X":"O";
 
   const onSquareClick=(index)=>{
     let strings=Array.from(gameState);
@@ -20,13 +21,18 @@ function App() {
     const winner=checkWinner();
     if(winner){
       alert(`${winner} wins!`);
-      updategameState(initialState);
+      clearGame();
     }
     else if(isTie()){
       alert(`It's a Tie!`);
-      updategameState(initialState);
+      clearGame();
     }
   },[gameState])
+
+  const clearGame=()=>{
+    updategameState(initialState);
+    updateisXTurn(true);
+  }
 
   const isTie=()=>{
     let i=0;
@@ -77,7 +83,9 @@ function App() {
         <SquareComponent state={gameState[8]} onClick={()=>onSquareClick(8)} />
       </div>
 
-      <button className="clear" onClick={()=>updategameState(initialState)}>Clear Game</button>
+      <div className="nextplayer">{isTie() ? "It's a Tie!" : checkWinner() ? "Winner: " + checkWinner() : "Next Player: " + x }</div>
+
+      <button className="clear" onClick={()=>clearGame()}>Clear Game</button>
 
     </div>
   );
